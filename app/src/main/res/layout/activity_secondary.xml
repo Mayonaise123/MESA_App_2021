@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".secondaryAct">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:text=""
+        android:id="@+id/helloText"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/goToCaloriesBtn"
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/helloText"
+        android:drawableLeft="@drawable/ic_calories"
+        android:text="Calories"
+        android:onClick="toCaloriesPage"
+        android:background="@color/red" />
+    <Button
+        android:id="@+id/goToSleepBtn"
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/goToCaloriesBtn"
+        android:layout_marginTop="15dp"
+        android:drawableLeft="@drawable/ic_sleep"
+        android:layout_centerHorizontal="true"
+        android:text="Sleep"
+        android:background="@color/orange"
+        android:onClick="toSleepPage"/>
+
+    <Button
+        android:id="@+id/goToWeightBtn"
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/goToSleepBtn"
+        android:drawableLeft="@drawable/ic_weight"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@color/yellow"
+        android:text="Weight"
+        android:onClick="toWeightPage"/>
+    <Button
+        android:id="@+id/goToDataPage"
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/goToWeightBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Data"
+        android:background="@color/green"
+        android:drawableLeft="@drawable/ic_data"
+        android:onClick="toDataPage"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/goToDataPage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@color/blue"
+        android:drawableLeft="@drawable/ic_settings"
+        android:text="Settings"
+        android:id="@+id/goToSettingsPage"
+        android:onClick="toSettingsPage"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/goToSettingsPage"
+        android:layout_centerHorizontal="true"
+        android:background="@color/purple_200"
+        android:drawableLeft="@drawable/ic_logout"
+        android:layout_marginTop="15dp"
+        android:id="@+id/logOut"
+        android:text="Log Out"
+        android:onClick="toLoginPage"/>
+
+
+
+</RelativeLayout>

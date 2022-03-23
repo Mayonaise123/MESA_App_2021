@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".plotPage">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Back"
+        android:drawableLeft="@drawable/ic_back"
+        android:background="@color/purple_200"
+        android:id="@+id/backBtnPlot"
+        android:onClick="toDataPage"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"
+        android:text="Statistics"
+        android:drawableLeft="@drawable/ic_statistics"
+        android:background="@color/teal_700"
+        android:id="@+id/toStatsPage"
+        android:onClick="toStatsPage"/>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/backBtnPlot"
+        android:id="@+id/graph"/>
+</RelativeLayout>

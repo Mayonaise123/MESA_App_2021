@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".statPage">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Back"
+        android:drawableLeft="@drawable/ic_back"
+        android:background="@color/purple_200"
+        android:layout_marginTop="20dp"
+        android:id="@+id/backBtnStats"
+        android:onClick="toPlotPage"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="More Info"
+        android:background="@color/teal_700"
+        android:drawableLeft="@drawable/ic_moreinfo"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/backBtnStats"
+        android:id="@+id/moreBtnInfo"
+        android:onClick="toMoreInfo"/>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Data"
+        android:background="@color/teal_200"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_data"
+        android:layout_alignBottom="@+id/backBtnStats"
+        android:id="@+id/backBtnData"
+        android:onClick="toDataPage"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/backBtnStats"
+        android:text="Mean"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/mean"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/mean"
+        android:text="Median"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/median"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/median"
+        android:text="Mode"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/mode"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/mode"
+        android:text="Range"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/range"/>
+
+
+</RelativeLayout>

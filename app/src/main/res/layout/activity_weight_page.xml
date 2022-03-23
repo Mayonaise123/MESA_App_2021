@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".weightPage">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Back"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_back"
+        android:background="@color/purple_200"
+        android:id="@+id/backBtnWeight"
+        android:onClick="toSecondaryPage"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backBtnWeight"
+        android:layout_marginTop="10dp"
+        android:text="Enter your weight in pounds."
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:id="@+id/instructionsWeight"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/instructionsWeight"
+        android:hint="Weight"
+        android:id="@+id/weight"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/weight"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Save Data"
+        android:background="@color/yellow"
+        android:onClick="saveWeight"
+        android:id="@+id/saveWeight"/>
+
+
+
+</RelativeLayout>

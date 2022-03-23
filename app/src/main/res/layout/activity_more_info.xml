@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl"
+    tools:context=".moreInfo">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Back"
+        android:drawableLeft="@drawable/ic_back"
+        android:background="@color/purple_200"
+        android:layout_marginTop="20dp"
+        android:id="@+id/backBtnMoreInfo"
+        android:onClick="toStatsPage"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Data"
+        android:background="@color/teal_200"
+        android:layout_marginTop="20dp"
+        android:id="@+id/backBtnData"
+        android:onClick="toDataPage"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backBtnMoreInfo"
+        android:textSize="20sp"
+        android:id="@+id/moreInfoText"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/moreInfoText"
+        android:id="@+id/levelsExercise"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sedentary"
+            android:checked="false"
+            android:layout_marginRight="12dp"
+            android:button="@null"
+            android:textSize="15sp"
+            android:buttonTint="@color/teal_700"
+            android:id="@+id/sedentary"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Light"
+            android:button="@null"
+            android:checked="false"
+            android:buttonTint="@color/teal_700"
+            android:layout_marginRight="12dp"
+            android:textSize="15sp"
+            android:id="@+id/light"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Moderate"
+            android:button="@null"
+            android:checked="false"
+            android:layout_marginRight="12dp"
+            android:buttonTint="@color/teal_700"
+            android:textSize="15sp"
+            android:id="@+id/moderate"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Heavy"
+            android:buttonTint="@color/teal_700"
+            android:button="@null"
+            android:checked="false"
+            android:layout_marginRight="12dp"
+            android:textSize="15sp"
+            android:id="@+id/heavy"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:buttonTint="@color/teal_700"
+            android:textSize="15sp"
+            android:button="@null"
+            android:text="Extreme"
+            android:id="@+id/extreme"/>
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/levelsExercise"
+        android:text="Save"
+        android:id="@+id/save"/>
+
+    <ImageView
+        android:id="@+id/moreInfoImage1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/save"
+        android:contentDescription="TODO" />
+
+    <ImageView
+        android:id="@+id/moreInfoImage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/moreInfoImage1"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="TODO" />
+</RelativeLayout>

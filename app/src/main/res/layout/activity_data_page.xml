@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dataPage">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Back"
+        android:drawableLeft="@drawable/ic_back"
+        android:background="@color/purple_200"
+        android:id="@+id/backBtnData"
+        android:onClick="toSecondaryPage"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backBtnData"
+        android:layout_centerHorizontal="true"
+        android:text="Choose category."
+        android:textSize="20sp"
+        android:id="@+id/dataInstructions"/>
+
+    <Spinner
+        android:layout_width="144dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/dataInstructions"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/chooseCategory"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Starting Date"
+        android:layout_below="@+id/chooseCategory"
+        android:id="@+id/chooseDateMin"/>
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Ending Date"
+        android:layout_below="@+id/chooseDateMin"
+        android:id="@+id/chooseDateMax"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/chooseDateMax"
+        android:layout_centerHorizontal="true"
+        android:background="@color/green"
+        android:text="Plot"
+        android:id="@+id/toPlotPage"
+        android:onClick="toPlotPageDate"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/toPlotPage"
+        android:layout_centerHorizontal="true"
+        android:background="@color/red"
+        android:text="Plot All Data"
+        android:id="@+id/plotAll"
+        android:onClick="toPlotPageAll"/>
+</RelativeLayout>

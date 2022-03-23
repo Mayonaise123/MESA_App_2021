@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".updateHeight">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Back"
+        android:drawableLeft="@drawable/ic_back"
+        android:background="@color/purple_200"
+        android:layout_marginTop="20dp"
+        android:id="@+id/backBtnUpHeight"
+        android:onClick="toSettingsPage"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backBtnUpHeight"
+        android:layout_marginTop="20dp"
+        android:text="Enter new height"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:id="@+id/instructionsUpHeight"/>
+
+    <TextView
+        android:id="@+id/FeetText"
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/instructionsUpHeight"
+        android:layout_marginTop="20dp"
+        android:text="Height: Feet"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/instructionsUpPass"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBaseline="@id/FeetText"
+        android:layout_toRightOf="@+id/FeetText"
+        android:text="Inches"
+        android:textSize="15sp"
+        android:id="@+id/inchText"/>
+
+    <Spinner
+        android:id="@+id/newHeightFeetValue"
+        android:layout_width="144dp"
+        android:layout_height="53dp"
+        android:layout_below="@+id/FeetText"/>
+
+    <Spinner
+        android:id="@+id/newHeightInchValue"
+        android:layout_width="144dp"
+        android:layout_height="53dp"
+        android:layout_below="@+id/inchText"
+        android:layout_alignStart="@+id/inchText"
+        android:layout_alignBaseline="@+id/heightFeetValue"
+        android:layout_toRightOf="@+id/heightFeetValue"
+        android:layout_alignLeft="@+id/inchText" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:text="Save New Height"
+        android:layout_below="@id/newHeightFeetValue"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/green"
+        android:id="@+id/saveNewHeight"
+        android:onClick="saveNewHeight"/>
+
+
+</RelativeLayout>
