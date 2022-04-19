@@ -96,7 +96,7 @@ public class plotPage extends AppCompatActivity {
 
         // X-Axis is the dates, Y-Axis is the data based on chosen category
         for (int i = 0; i < dataArray.length; i = i + 1) {
-            yEntrys.add(new Entry(i, Integer.parseInt(dataArray[i].split(",")[1])));
+            yEntrys.add(new Entry(i, Float.parseFloat(dataArray[i].split(",")[1])));
             xEntrys.add(dataArray[i].split(",")[0]);
         }
 

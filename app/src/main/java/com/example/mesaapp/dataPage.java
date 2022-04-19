@@ -141,7 +141,7 @@ public class dataPage extends AppCompatActivity implements AdapterView.OnItemSel
                 }
             });
 
-        // Plays text to speech audio for back
+            // Plays text to speech audio for back
             backBtn.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
@@ -263,8 +263,8 @@ public class dataPage extends AppCompatActivity implements AdapterView.OnItemSel
             intent.putExtra("value", daysBetweenStr);
             intent.putExtra("data", dataArray);
             startActivity(intent);
-            }
         }
+    }
 
     /*
      * Checks whether if there is data between the min and max dates

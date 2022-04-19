@@ -79,30 +79,29 @@ public class statPage extends AppCompatActivity {
         range = (TextView) findViewById(R.id.range);
 
         // Gathers only the data (not dates) from the dataArray
-        ArrayList<Integer> dataList = new ArrayList<>();
+        ArrayList<Float> dataList = new ArrayList<>();
         for (int i = 0; i < dataArray.length; i = i + 1) {
-            dataList.add(Integer.parseInt(dataArray[i].split(",")[1]));
+            dataList.add(Float.parseFloat(dataArray[i].split(",")[1]));
         }
 
         // Changes "day" to "days" based on the number of dates in between (totalEvents)
-        String day = " day.";
+        String day = " day";
         if (totalEvents > 1) {
-            day = " days.";
+            day = " days";
         }
+        String units = "";
         String catStrLow = catStr.toLowerCase();
-        if (catStrLow.equals("sleep")) {
-            catStrLow = "hours";
+        if(catStrLow.equals("sleep")) {
+            units = " hours";
+        } else if (catStrLow.equals("weight")){
+            units = " pounds";
+        } else if (catStrLow.equals("sugar")) {
+            units = " grams";
         }
-        else if (catStrLow.equals("weight")) {
-            catStrLow = "pounds";
-        }
-        else if (catStrLow.equals("sugar")) {
-            catStrLow = "grams";
-        }
-        String meanText = "Your daily mean " + catStrLow + " is " + mean(dataList) + " for " + totalEvents + day;
-        String medianText = "Your daily median " + catStrLow + " is " + median(dataList) + " for " + totalEvents + day;
-        String modeText = "Your daily mode " + catStrLow + " is " + mode(dataList) + " for " + totalEvents + day;
-        String rangeText = "Your daily range " + catStrLow + " is " +  range(dataList) + " for " + totalEvents + day;
+        String meanText = "Your daily mean " + catStrLow + " is " + mean(dataList) + units + " for " + totalEvents + day;
+        String medianText = "Your daily median " + catStrLow + " is " + median(dataList) + units + " for " + totalEvents + day;
+        String modeText = "Your daily mode " + catStrLow + " is " + mode(dataList) + units + " for " + totalEvents + day;
+        String rangeText = "Your daily range of " + catStrLow + " is " +  range(dataList) + units + " for " + totalEvents + day + " ,between the highest and lowest recorded values";
 
         mean.setText(meanText);
         median.setText(medianText);
@@ -143,10 +142,10 @@ public class statPage extends AppCompatActivity {
     /*
      * Calculates the mean based on the number of entries chosen
      */
-    public String mean(ArrayList<Integer> x) {
-        double total = 0;
+    public String mean(ArrayList<Float> x) {
+        float total = 0;
 
-        for (int i : x) {
+        for (float i : x) {
             total = total + i;
         }
         String returnStr = Double.toString(total / x.size());
@@ -167,7 +166,7 @@ public class statPage extends AppCompatActivity {
     /*
      * Calculates the median based on the number of entries chosen
      */
-    public String median(ArrayList<Integer> x) {
+    public String median(ArrayList<Float> x) {
         Collections.sort(x);
 
         if (x.size() % 2 == 0) {
@@ -181,13 +180,13 @@ public class statPage extends AppCompatActivity {
     /*
      * Calculates the mode based on the number of entries chosen
      */
-    public String mode(ArrayList<Integer> x) {
-        int maxValue = 0;
+    public String mode(ArrayList<Float> x) {
+        float maxValue = 0;
         int maxCount = 0;
 
-        for (int i : x) {
+        for (float i : x) {
             int counter = 0;
-            for (int j : x) {
+            for (float j : x) {
                 if (j == i) {
                     counter = counter + 1;
                 }
@@ -203,7 +202,7 @@ public class statPage extends AppCompatActivity {
     /*
      * Calculates the range based on the number of entries chosen
      */
-    public String range(ArrayList<Integer> x) {
+    public String range(ArrayList<Float> x) {
         Collections.sort(x);
         return Double.toString(x.get(x.size() - 1) - x.get(0));
     }
