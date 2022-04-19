@@ -40,10 +40,12 @@ public class moreInfo extends AppCompatActivity {
         // Sets the radio buttons and button to be gone
         RadioGroup levels = findViewById(R.id.levelsExercise);
         Button save = findViewById(R.id.save);
+        TextView selection = findViewById(R.id.selectText);
         levels.setVisibility(View.GONE);
         levels.setEnabled(false);
         save.setVisibility(View.GONE);
         save.setEnabled(false);
+        selection.setVisibility(View.GONE);
 
         // Gathers data from what the user chooses in the previous pages
         Bundle data = getIntent().getExtras();

@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -147,7 +148,6 @@ public class signUpPage extends AppCompatActivity implements AdapterView.OnItemS
         SimpleDateFormat sdf = new SimpleDateFormat("MMM/dd/yyyy");
 
         ArrayList<String> dupUsername = new ArrayList<>();
-
         try {
             femaleGender = findViewById(R.id.femaleChoice);
             maleGender = findViewById(R.id.maleChoice);
@@ -163,7 +163,14 @@ public class signUpPage extends AppCompatActivity implements AdapterView.OnItemS
                 genderString = "male";
             }
 
-            // Reads the file
+            // Creates file if file does not exist
+            String path = getFilesDir().getAbsolutePath();
+            File file = new File(path + "/userInfo.txt");
+            if(!file.exists()) {
+                file.createNewFile();
+            }
+
+            // Reads file
             FileInputStream myObj = openFileInput("userInfo.txt");
             InputStreamReader InputRead = new InputStreamReader(myObj);
             BufferedReader bufferedReader = new BufferedReader(InputRead);

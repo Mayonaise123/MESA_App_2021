@@ -61,7 +61,7 @@ public class Person implements Parcelable {
         signUpDateStr = in.readString();
     }
 
-    public static final Creator<Person> CREATOR = new Creator <Person>() {
+    public static final Creator<Person> CREATOR = new Creator<Person>() {
         @Override
         public Person createFromParcel(Parcel in) {
             return new Person(in);

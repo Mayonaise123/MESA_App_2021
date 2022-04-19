@@ -33,61 +33,79 @@
         android:textSize="20sp"
         android:id="@+id/moreInfoText"/>
 
+    <TextView
+        android:id="@+id/selectText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/moreInfoText"
+        android:layout_marginTop="0dp"
+        android:text="Please Select Activity Level"
+        android:gravity="center"
+        android:textSize="20sp" />
+
     <RadioGroup
+        android:id="@+id/levelsExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/moreInfoText"
-        android:id="@+id/levelsExercise"
+        android:layout_below="@+id/selectText"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
+
         <RadioButton
+            android:id="@+id/sedentary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="30dp"
+            android:button="@null"
+            android:buttonTint="@color/teal_700"
+            android:checked="false"
             android:text="Sedentary"
-            android:checked="false"
-            android:layout_marginRight="12dp"
-            android:button="@null"
-            android:textSize="15sp"
-            android:buttonTint="@color/teal_700"
-            android:id="@+id/sedentary"/>
+            android:textSize="15sp" />
+
         <RadioButton
+            android:id="@+id/light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:button="@null"
+            android:buttonTint="@color/teal_700"
+            android:checked="false"
             android:text="Light"
-            android:button="@null"
-            android:checked="false"
-            android:buttonTint="@color/teal_700"
-            android:layout_marginRight="12dp"
-            android:textSize="15sp"
-            android:id="@+id/light"/>
+            android:textSize="15sp" />
+
         <RadioButton
+            android:id="@+id/moderate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:button="@null"
+            android:buttonTint="@color/teal_700"
+            android:checked="false"
             android:text="Moderate"
-            android:button="@null"
-            android:checked="false"
-            android:layout_marginRight="12dp"
-            android:buttonTint="@color/teal_700"
-            android:textSize="15sp"
-            android:id="@+id/moderate"/>
+            android:textSize="15sp" />
+
         <RadioButton
+            android:id="@+id/heavy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:button="@null"
+            android:buttonTint="@color/teal_700"
+            android:checked="false"
             android:text="Heavy"
-            android:buttonTint="@color/teal_700"
-            android:button="@null"
-            android:checked="false"
-            android:layout_marginRight="12dp"
-            android:textSize="15sp"
-            android:id="@+id/heavy"/>
+            android:textSize="15sp" />
+
         <RadioButton
+            android:id="@+id/extreme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="false"
-            android:buttonTint="@color/teal_700"
-            android:textSize="15sp"
+            android:layout_marginLeft="15dp"
             android:button="@null"
+            android:buttonTint="@color/teal_700"
+            android:checked="false"
             android:text="Extreme"
-            android:id="@+id/extreme"/>
+            android:textSize="15sp" />
     </RadioGroup>
 
     <Button

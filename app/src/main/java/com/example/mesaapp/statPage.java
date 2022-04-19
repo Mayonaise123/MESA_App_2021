@@ -90,6 +90,15 @@ public class statPage extends AppCompatActivity {
             day = " days.";
         }
         String catStrLow = catStr.toLowerCase();
+        if (catStrLow.equals("sleep")) {
+            catStrLow = "hours";
+        }
+        else if (catStrLow.equals("weight")) {
+            catStrLow = "pounds";
+        }
+        else if (catStrLow.equals("sugar")) {
+            catStrLow = "grams";
+        }
         String meanText = "Your daily mean " + catStrLow + " is " + mean(dataList) + " for " + totalEvents + day;
         String medianText = "Your daily median " + catStrLow + " is " + median(dataList) + " for " + totalEvents + day;
         String modeText = "Your daily mode " + catStrLow + " is " + mode(dataList) + " for " + totalEvents + day;
