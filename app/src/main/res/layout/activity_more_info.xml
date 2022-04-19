@@ -46,10 +46,15 @@
     <RadioGroup
         android:id="@+id/levelsExercise"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="133dp"
         android:layout_below="@+id/selectText"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+        android:gravity="center"
 
         <RadioButton
             android:id="@+id/sedentary"
@@ -60,6 +65,7 @@
             android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
+            android:gravity="center_horizontal"
             android:text="Sedentary"
             android:textSize="15sp" />
 
