@@ -60,58 +60,52 @@
             android:id="@+id/sedentary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="30dp"
             android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:gravity="center_horizontal"
             android:text="Sedentary"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
             android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:text="Light"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/moderate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
             android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:text="Moderate"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/heavy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
             android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:text="Heavy"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/extreme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
             android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:text="Extreme"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
     </RadioGroup>
 
     <Button

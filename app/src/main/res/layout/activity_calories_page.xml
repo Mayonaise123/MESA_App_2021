@@ -22,7 +22,7 @@
         android:layout_below="@+id/backBtnCalories"
         android:layout_marginTop="10dp"
         android:inputType="number"
-        android:text="Enter the following;"
+        android:text="Enter the following in grams: "
         android:textSize="20sp"
         android:id="@+id/instructionsCalories"/>
 
