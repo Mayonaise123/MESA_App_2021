@@ -6,24 +6,24 @@
     tools:context=".sleepPage">
 
     <Button
+        android:id="@+id/backBtnSleep"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:text="Back"
-        android:drawableLeft="@drawable/ic_back"
         android:background="@color/purple_200"
-        android:id="@+id/backBtnSleep"
-        android:onClick="toSecondaryPage"/>
+        android:drawableLeft="@drawable/ic_back"
+        android:onClick="toSecondaryPage"
+        android:text="Back" />
 
     <TextView
+        android:id="@+id/instructionsSleep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/backBtnSleep"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/backBtnSleep"
-        android:text="Enter hours of sleep: "
-        android:textSize="20sp"
-        android:id="@+id/instructionsSleep"/>
+        android:text="Enter hours of sleep you got last night: "
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/sleep"
@@ -33,15 +33,16 @@
         android:layout_marginTop="50dp"
         android:hint="# of hours"
         android:inputType="number" />
+
     <Button
+        android:id="@+id/saveSleep"
         android:layout_width="150dp"
         android:layout_height="65dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/sleep"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Save Data"
         android:background="@color/orange"
-        android:id="@+id/saveSleep"
-        android:onClick="saveSleep"/>
+        android:onClick="saveSleep"
+        android:text="Save Data" />
 
 </RelativeLayout>
