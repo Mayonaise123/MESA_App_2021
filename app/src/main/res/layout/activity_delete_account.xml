@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".deleteAccount">
+
+    <Button
+        android:id="@+id/delAcctButton"
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/delAccTextBox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@color/green"
+        android:onClick="deleteAccount"
+        android:text="Confirm"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="316dp" />
+
+    <EditText
+        android:id="@+id/delAccTextBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deleteAccInstructions"
+        android:layout_marginTop="25dp"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="201dp" />
+
+    <TextView
+        android:id="@+id/deleteAccInstructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backBtnDelAct"
+        android:layout_centerHorizontal="true"
+        android:text="Type &quot;confirm&quot; in the text box below and then click the Confirm button to ensure the deletion of your account."
+        android:textSize="20sp"
+        tools:layout_editor_absoluteY="60dp" />
+
+    <Button
+        android:id="@+id/backBtnDelAct"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@color/purple_200"
+        android:drawableLeft="@drawable/ic_back"
+        android:onClick="toSettingsPage"
+        android:text="Back" />
+
+</RelativeLayout>

@@ -84,6 +84,17 @@ public class settingsPage extends AppCompatActivity {
                 return true;
             }
         });
+
+        // Plays text to speech audio for delete account
+        /* TODO: Implement audio for button
+        deleteAccount.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                MediaPlayer saveData = MediaPlayer.create(settingsPage.this, R.raw.deleteaccount);
+                saveData.start();
+                return true;
+            }
+        }); */
     }
 
     /*
@@ -115,6 +126,17 @@ public class settingsPage extends AppCompatActivity {
         intent.putExtra("person", (Parcelable) person);
         startActivity(intent);
     }
+
+    /*
+     * Navigates to the Delete Account Page
+     * Transfers the data to the next page
+     */
+    public void toDeleteAccountPage(View view) {
+        Intent intent = new Intent(this, deleteAccount.class);
+        intent.putExtra("person", (Parcelable) person);
+        startActivity(intent);
+    }
+
 
     /*
      * Keeps the navigation and status bar hidden after the user leaves the page

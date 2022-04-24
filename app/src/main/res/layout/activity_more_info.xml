@@ -39,8 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/moreInfoText"
         android:layout_marginTop="0dp"
-        android:text="Please Select Activity Level"
         android:gravity="center"
+        android:text="Please Select Activity Level"
         android:textSize="20sp" />
 
     <RadioGroup

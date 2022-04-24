@@ -23,9 +23,9 @@
         android:layout_below="@+id/backBtnSettings"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Update password"
-        android:background="@color/red"
-        android:onClick="toUpdatePassPage"/>
+        android:background="@color/yellow"
+        android:onClick="toUpdatePassPage"
+        android:text="Update password" />
 
     <Button
         android:id="@+id/newHeight"
@@ -34,9 +34,20 @@
         android:layout_below="@id/newPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Update height"
         android:background="@color/orange"
-        android:onClick="toUpdateHeightPage"/>
+        android:onClick="toUpdateHeightPage"
+        android:text="Update height" />
+
+    <Button
+        android:id="@+id/deleteAccount"
+        android:layout_width="190dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/newHeight"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/red"
+        android:onClick="toDeleteAccountPage"
+        android:text="Delete account" />
 
 
 </RelativeLayout>

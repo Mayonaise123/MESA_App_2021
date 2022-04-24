@@ -21,6 +21,7 @@
         <activity android:name=".signUpPage" />
         <activity android:name=".caloriesPage" />
         <activity android:name=".weightPage" />
+        <activity android:name=".deleteAccount" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

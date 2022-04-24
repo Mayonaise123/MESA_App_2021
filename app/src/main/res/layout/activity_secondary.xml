@@ -74,16 +74,16 @@
         android:onClick="toSettingsPage"/>
 
     <Button
+        android:id="@+id/logOut"
         android:layout_width="150dp"
         android:layout_height="65dp"
         android:layout_below="@id/goToSettingsPage"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
         android:background="@color/purple_200"
         android:drawableLeft="@drawable/ic_logout"
-        android:layout_marginTop="15dp"
-        android:id="@+id/logOut"
-        android:text="Log Out"
-        android:onClick="toLoginPage"/>
+        android:onClick="toLoginPage"
+        android:text="Log Out" />
 
 
 
