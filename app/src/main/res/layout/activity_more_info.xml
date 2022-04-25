@@ -46,7 +46,7 @@
     <RadioGroup
         android:id="@+id/levelsExercise"
         android:layout_width="wrap_content"
-        android:layout_height="133dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/selectText"
         android:layout_alignParentTop="false"
         android:layout_alignParentRight="false"
@@ -60,7 +60,6 @@
             android:id="@+id/sedentary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:gravity="center_horizontal"
@@ -71,7 +70,6 @@
             android:id="@+id/light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:text="Light"
@@ -81,7 +79,6 @@
             android:id="@+id/moderate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:text="Moderate"
@@ -91,7 +88,6 @@
             android:id="@+id/heavy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:text="Heavy"
@@ -101,7 +97,6 @@
             android:id="@+id/extreme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:button="@null"
             android:buttonTint="@color/teal_700"
             android:checked="false"
             android:text="Extreme"
@@ -109,12 +104,12 @@
     </RadioGroup>
 
     <Button
+        android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/levelsExercise"
-        android:text="Save"
-        android:id="@+id/save"/>
+        android:layout_centerHorizontal="true"
+        android:text="Save" />
 
     <ImageView
         android:id="@+id/moreInfoImage1"
