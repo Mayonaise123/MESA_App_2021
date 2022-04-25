@@ -7,9 +7,11 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -26,11 +28,13 @@ import java.util.Date;
 /*
  * User inputs their weight
  */
-public class weightPage extends AppCompatActivity {
+public class weightPage extends AppCompatActivity implements TextToSpeech.OnInitListener{
     // Global Variables
     private int currentApiVersion;
     EditText weightText;
     Person person;
+    TextToSpeech textToSpeech;
+    TextView weightInstructions;
 
     /*
      * Generates fields
@@ -45,8 +49,14 @@ public class weightPage extends AppCompatActivity {
         person = (Person) data.getParcelable("person");
 
         weightText = (EditText) findViewById(R.id.weight);
+        weightInstructions = (TextView) findViewById(R.id.instructionsWeight);
         Button back = (Button) findViewById(R.id.backBtnWeight);
         Button saveData = (Button) findViewById(R.id.saveWeight);
+
+        String weightInstructionsText = weightInstructions.getText().toString();
+        String weightHint = weightText.getHint().toString();
+
+        textToSpeech = new TextToSpeech(this, this);
 
         // Hides the navigation and status bar
         currentApiVersion = android.os.Build.VERSION.SDK_INT;
@@ -86,6 +96,20 @@ public class weightPage extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 MediaPlayer saveData = MediaPlayer.create(weightPage.this, R.raw.savedata);
                 saveData.start();
+                return true;
+            }
+        });
+        weightText.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(weightHint, TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        weightInstructions.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(weightInstructionsText, TextToSpeech.QUEUE_FLUSH,null);
                 return true;
             }
         });
@@ -169,5 +193,10 @@ public class weightPage extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN);
         }
+    }
+
+    @Override
+    public void onInit(int i) {
+
     }
 }

@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
@@ -31,7 +33,7 @@ import java.util.GregorianCalendar;
 /*
  * User chooses starting, ending dates, and category for plot page
  */
-public class dataPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class dataPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TextToSpeech.OnInitListener {
     // Global Variables
     private int currentApiVersion;
     String minDateStr;
@@ -43,6 +45,8 @@ public class dataPage extends AppCompatActivity implements AdapterView.OnItemSel
     DatePickerDialog picker;
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     Person person;
+    TextView dataInstructions;
+    TextToSpeech textToSpeech;
 
     /*
      * Generates spinner and date pickers on an edit texts
@@ -58,6 +62,19 @@ public class dataPage extends AppCompatActivity implements AdapterView.OnItemSel
         Button backBtn = (Button) findViewById(R.id.backBtnData);
         Button plotBtn = (Button) findViewById(R.id.toPlotPage);
         Button plotAllBtn = (Button) findViewById(R.id.plotAll);
+        dataInstructions = (TextView) findViewById(R.id.dataInstructions);
+        // Sets up the date pickers as edit texts
+        datePickerMin = (EditText) findViewById(R.id.chooseDateMin);
+        datePickerMax = (EditText) findViewById(R.id.chooseDateMax);
+        datePickerMax.setInputType(InputType.TYPE_NULL);
+        datePickerMin.setInputType(InputType.TYPE_NULL);
+
+        String dataInstructionsText = dataInstructions.getText().toString();
+        String datePickerMinHint = datePickerMin.getHint().toString();
+        String datePickerMaxHint = datePickerMax.getHint().toString();
+        String plotBtnText = plotBtn.getText().toString();
+        textToSpeech = new TextToSpeech(this, this);
+
         // Hides status and navigation bar
         currentApiVersion = android.os.Build.VERSION.SDK_INT;
 
@@ -85,13 +102,6 @@ public class dataPage extends AppCompatActivity implements AdapterView.OnItemSel
             adapterCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             catSpinner.setAdapter(adapterCat);
             catSpinner.setOnItemSelectedListener(this);
-
-
-            // Sets up the date pickers as edit texts
-            datePickerMin = (EditText) findViewById(R.id.chooseDateMin);
-            datePickerMax = (EditText) findViewById(R.id.chooseDateMax);
-            datePickerMax.setInputType(InputType.TYPE_NULL);
-            datePickerMin.setInputType(InputType.TYPE_NULL);
 
             // If the user clicks to data page from plot, statistic, or more-info page, the dates would remain the same as what they chose before
             if (data.getString("source").equals("getDates")) {
@@ -167,6 +177,34 @@ public class dataPage extends AppCompatActivity implements AdapterView.OnItemSel
                 public boolean onLongClick(View v) {
                     MediaPlayer plotAll = MediaPlayer.create(dataPage.this, R.raw.plotalldatasound);
                     plotAll.start();
+                    return true;
+                }
+            });
+            dataInstructions.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int speech = textToSpeech.speak(dataInstructionsText,TextToSpeech.QUEUE_FLUSH,null);
+                    return true;
+                }
+            });
+            datePickerMin.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int speech = textToSpeech.speak(datePickerMinHint,TextToSpeech.QUEUE_FLUSH,null);
+                    return true;
+                }
+            });
+            datePickerMax.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int speech = textToSpeech.speak(datePickerMaxHint,TextToSpeech.QUEUE_FLUSH,null);
+                    return true;
+                }
+            });
+            plotBtn.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int speech = textToSpeech.speak(plotBtnText,TextToSpeech.QUEUE_FLUSH,null);
                     return true;
                 }
             });
@@ -402,6 +440,11 @@ public class dataPage extends AppCompatActivity implements AdapterView.OnItemSel
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    @Override
+    public void onInit(int i) {
 
     }
 }

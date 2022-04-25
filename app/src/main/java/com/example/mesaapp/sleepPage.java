@@ -7,9 +7,11 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -27,11 +29,13 @@ import java.util.Date;
 /*
  * User inputs the hours of sleep
  */
-public class sleepPage extends AppCompatActivity {
+public class sleepPage extends AppCompatActivity implements TextToSpeech.OnInitListener{
     // Global Variables
     private int currentApiVersion;
     EditText sleepText;
     Person person;
+    TextToSpeech textToSpeech;
+    TextView sleepInstructions;
 
     /*
      * Displays an edit text for the user to input their data
@@ -48,6 +52,11 @@ public class sleepPage extends AppCompatActivity {
         sleepText = (EditText) findViewById(R.id.sleep);
         Button back = (Button) findViewById(R.id.backBtnSleep);
         Button saveData = (Button) findViewById(R.id.saveSleep);
+        sleepInstructions = (TextView) findViewById(R.id.instructionsSleep);
+        textToSpeech = new TextToSpeech(this, this);
+
+        String sleepHint = sleepText.getHint().toString();
+        String sleepInstructionsText = sleepInstructions.getText().toString();
 
         // Hides the navigation bar and status bar
         currentApiVersion = android.os.Build.VERSION.SDK_INT;
@@ -87,6 +96,20 @@ public class sleepPage extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 MediaPlayer saveData = MediaPlayer.create(sleepPage.this, R.raw.savedata);
                 saveData.start();
+                return true;
+            }
+        });
+        sleepText.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(sleepHint, TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        sleepInstructions.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(sleepInstructionsText, TextToSpeech.QUEUE_FLUSH,null);
                 return true;
             }
         });
@@ -173,5 +196,10 @@ public class sleepPage extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN);
         }
+    }
+
+    @Override
+    public void onInit(int i) {
+
     }
 }

@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,7 +33,7 @@ import java.util.Date;
 /*
  * User registers into the app
  */
-public class signUpPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class signUpPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TextToSpeech.OnInitListener {
     //Global Variables
     private int currentApiVersion;
     EditText username;
@@ -46,6 +47,7 @@ public class signUpPage extends AppCompatActivity implements AdapterView.OnItemS
     RadioButton femaleGender;
     RadioButton maleGender;
     Person person;
+    TextToSpeech textToSpeech;
 
     /*
      *Sets name, username, password
@@ -55,6 +57,7 @@ public class signUpPage extends AppCompatActivity implements AdapterView.OnItemS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
+        textToSpeech = new TextToSpeech(this, this);
 
         // Hides the status bar and navigation bar
         currentApiVersion = android.os.Build.VERSION.SDK_INT;
@@ -116,6 +119,10 @@ public class signUpPage extends AppCompatActivity implements AdapterView.OnItemS
         yearBday.setAdapter(adapterYear);
         yearBday.setOnItemSelectedListener(this);
 
+        String nameHint = name.getHint().toString();
+        String passwordHint = password.getHint().toString();
+        String usernameHint = username.getHint().toString();
+
         // Plays text to speech audio for back
         back.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -133,8 +140,29 @@ public class signUpPage extends AppCompatActivity implements AdapterView.OnItemS
             MediaPlayer createAccSound = MediaPlayer.create(signUpPage.this, R.raw.createaccount);
             createAccSound.start();
             return true;
-        }
-    });
+            }
+        });
+        name.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(nameHint,TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        password.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(passwordHint,TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        username.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(usernameHint,TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
 }
 
     /*
@@ -304,5 +332,10 @@ public class signUpPage extends AppCompatActivity implements AdapterView.OnItemS
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN);
         }
+    }
+
+    @Override
+    public void onInit(int i) {
+
     }
 }

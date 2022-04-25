@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/instructionsSleep"
         android:layout_marginTop="50dp"
-        android:hint="# of hours"
+        android:hint="Enter number of hours here"
         android:inputType="number" />
 
     <Button

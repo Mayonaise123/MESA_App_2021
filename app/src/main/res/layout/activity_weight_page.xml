@@ -16,34 +16,34 @@
         android:onClick="toSecondaryPage"/>
 
     <TextView
+        android:id="@+id/instructionsWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/backBtnWeight"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Enter your weight in pounds: "
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:id="@+id/instructionsWeight"/>
+        android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:inputType="numberDecimal"
         android:layout_below="@+id/instructionsWeight"
-        android:hint="Weight"
-        android:id="@+id/weight"/>
+        android:layout_marginTop="50dp"
+        android:hint="Enter Weight Here"
+        android:inputType="numberDecimal" />
 
     <Button
+        android:id="@+id/saveWeight"
         android:layout_width="150dp"
         android:layout_height="65dp"
         android:layout_below="@id/weight"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Save Data"
         android:background="@color/yellow"
         android:onClick="saveWeight"
-        android:id="@+id/saveWeight"/>
+        android:text="Save Data" />
 
 
 

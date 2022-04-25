@@ -7,9 +7,11 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -22,23 +24,34 @@ import java.text.ParseException;
  * User is directed to this page first
  * User has to sign in in order to input new data
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
     // Global Variables
     private int currentApiVersion;
     EditText name;
     EditText password;
     Person person;
+    TextToSpeech textToSpeech;
+    TextView welcomeTitle;
+    TextView registerInfo;
 
     // Generates the name and password field
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textToSpeech = new TextToSpeech(this, this);
 
         name = findViewById(R.id.nameLogin);
         password = findViewById(R.id.passwordlogin);
         Button signInBtn = findViewById(R.id.signInBtn);
         Button createAccount = findViewById(R.id.createAccount);
+        welcomeTitle = (TextView) findViewById(R.id.welcomeText);
+        registerInfo = (TextView) findViewById(R.id.registerText);
+        String registerInfoText = registerInfo.getText().toString();
+        String welcomeTitleText = welcomeTitle.getText().toString();
+        String nameHint = name.getHint().toString();
+        String passwordHint = password.getHint().toString();
+
 
         // Hides the status and notification bar
         currentApiVersion = android.os.Build.VERSION.SDK_INT;
@@ -78,6 +91,34 @@ public class MainActivity extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 MediaPlayer createAccount = MediaPlayer.create(MainActivity.this, R.raw.createaccount);
                 createAccount.start();
+                return true;
+            }
+        });
+        welcomeTitle.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(welcomeTitleText,TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        name.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(nameHint,TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        password.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(passwordHint,TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        registerInfo.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(registerInfoText,TextToSpeech.QUEUE_FLUSH,null);
                 return true;
             }
         });
@@ -150,5 +191,10 @@ public class MainActivity extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN);
         }
+    }
+
+    @Override
+    public void onInit(int i) {
+
     }
 }

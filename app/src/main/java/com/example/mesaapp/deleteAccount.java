@@ -7,9 +7,11 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -19,15 +21,24 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /*
  * User can update new password
  */
-public class deleteAccount extends AppCompatActivity {
+public class deleteAccount extends AppCompatActivity implements TextToSpeech.OnInitListener{
     // Global Variables
     private int currentApiVersion;
     Person person;
     EditText confirmBox;
+    TextView deleteAccInstr;
+    TextToSpeech textToSpeech;
+    String deleteAccInstrText;
+    Button confirmButton;
+
+    public static void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+    }
+
     /*
      * Generates the fields
      */
@@ -41,6 +52,13 @@ public class deleteAccount extends AppCompatActivity {
         person = (Person) data.getParcelable("person");
         Button back = (Button) findViewById(R.id.backBtnDelAct);
         confirmBox = (EditText) findViewById(R.id.delAccTextBox);
+        deleteAccInstr = (TextView) findViewById(R.id.deleteAccInstructions);
+        textToSpeech = new TextToSpeech(this, this);
+        deleteAccInstrText = deleteAccInstr.getText().toString();
+        confirmButton = (Button) findViewById(R.id.delAcctButton);
+        String confirmButtonText = confirmButton.getText().toString();
+        String confirmBoxText = confirmBox.getHint().toString();
+
 
         // Hides the navigation bar and status bar
         currentApiVersion = android.os.Build.VERSION.SDK_INT;
@@ -70,6 +88,30 @@ public class deleteAccount extends AppCompatActivity {
             public boolean onLongClick(View v) {
                 MediaPlayer back = MediaPlayer.create(deleteAccount.this, R.raw.back);
                 back.start();
+                return true;
+            }
+        });
+
+        deleteAccInstr.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(deleteAccInstrText, TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+
+        confirmButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(confirmButtonText, TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+
+        confirmBox.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(confirmBoxText, TextToSpeech.QUEUE_FLUSH,null);
                 return true;
             }
         });
@@ -135,6 +177,13 @@ public class deleteAccount extends AppCompatActivity {
                 outputWriter.close();
             } catch (IOException | ParseException e) {
             }
+        }
+    }
+
+    @Override
+    public void onInit(int i) {
+        if (i == TextToSpeech.SUCCESS) {
+            int lang = textToSpeech.setLanguage(Locale.ENGLISH);
         }
     }
 }

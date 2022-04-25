@@ -7,15 +7,21 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.Locale;
 
 /*
  * Allows user to change their password and height value
  */
-public class settingsPage extends AppCompatActivity {
+public class settingsPage extends AppCompatActivity implements TextToSpeech.OnInitListener {
     private int currentApiVersion;
     Person person;
+    TextToSpeech textToSpeech;
+    Button deleteAcctButton;
+    String delAcctButtonText;
 
     /*
      * Generates the fields
@@ -32,9 +38,14 @@ public class settingsPage extends AppCompatActivity {
         Button back = (Button) findViewById(R.id.backBtnSettings);
         Button updatePass = (Button) findViewById(R.id.newPassword);
         Button updateHeight = (Button) findViewById(R.id.newHeight);
+        Button deleteAcctButton = (Button) findViewById(R.id.deleteAccountBtn);
+        textToSpeech = new TextToSpeech(this, this);
+        delAcctButtonText = deleteAcctButton.getText().toString();
+
+
 
         // Hides the status and navigation bar
-        currentApiVersion = android.os.Build.VERSION.SDK_INT;
+        currentApiVersion = Build.VERSION.SDK_INT;
 
         final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -85,16 +96,13 @@ public class settingsPage extends AppCompatActivity {
             }
         });
 
-        // Plays text to speech audio for delete account
-        /* TODO: Implement audio for button
-        deleteAccount.setOnLongClickListener(new View.OnLongClickListener() {
+        deleteAcctButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                MediaPlayer saveData = MediaPlayer.create(settingsPage.this, R.raw.deleteaccount);
-                saveData.start();
+                int speech = textToSpeech.speak(delAcctButtonText,TextToSpeech.QUEUE_FLUSH,null);
                 return true;
             }
-        }); */
+        });
     }
 
     /*
@@ -151,6 +159,13 @@ public class settingsPage extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        }
+    }
+
+    @Override
+    public void onInit(int i) {
+        if (i == TextToSpeech.SUCCESS) {
+            int lang = textToSpeech.setLanguage(Locale.ENGLISH);
         }
     }
 }

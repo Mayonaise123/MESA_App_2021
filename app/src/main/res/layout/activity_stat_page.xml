@@ -16,15 +16,15 @@
         android:onClick="toPlotPage"/>
 
     <Button
+        android:id="@+id/moreBtnInfo"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:text="More Info"
+        android:layout_alignBottom="@+id/backBtnStats"
+        android:layout_alignParentRight="true"
         android:background="@color/teal_700"
         android:drawableLeft="@drawable/ic_moreinfo"
-        android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/backBtnStats"
-        android:id="@+id/moreBtnInfo"
-        android:onClick="toMoreInfo"/>
+        android:onClick="toMoreInfo"
+        android:text="More Info" />
     <Button
         android:layout_width="100dp"
         android:layout_height="60dp"
@@ -37,26 +37,26 @@
         android:onClick="toDataPage"/>
 
     <TextView
+        android:id="@+id/mean"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_below="@+id/backBtnStats"
+        android:layout_marginTop="30dp"
+        android:onClick="MeanAudio"
         android:text="Mean"
-        android:textSize="20sp"
         android:textColor="@color/black"
-        android:id="@+id/mean"
-        android:onClick="MeanAudio"/>
+        android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/median"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_below="@+id/mean"
+        android:layout_marginTop="10dp"
+        android:onClick="MedianAudio"
         android:text="Median"
-        android:textSize="20sp"
         android:textColor="@color/black"
-        android:id="@+id/median"
-        android:onClick="MedianAudio"/>
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"

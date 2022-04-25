@@ -3,11 +3,11 @@ package com.example.mesaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,7 +19,7 @@ import android.widget.Toast;
 /*
  * Shows more information about the user's chosen category
  */
-public class moreInfo extends AppCompatActivity {
+public class moreInfo extends AppCompatActivity implements TextToSpeech.OnInitListener{
     // Global Variables
     private int currentApiVersion;
     int totalEvents;
@@ -28,6 +28,8 @@ public class moreInfo extends AppCompatActivity {
     String maxDateStr;
     String[] dataArray;
     Person person;
+    TextToSpeech textToSpeech;
+    String moreInfoText;
 
     /*
      * Sets the text and image based on the category the user chooses
@@ -46,6 +48,7 @@ public class moreInfo extends AppCompatActivity {
         save.setVisibility(View.GONE);
         save.setEnabled(false);
         selection.setVisibility(View.GONE);
+        textToSpeech = new TextToSpeech(this, this);
 
         // Gathers data from what the user chooses in the previous pages
         Bundle data = getIntent().getExtras();
@@ -74,7 +77,16 @@ public class moreInfo extends AppCompatActivity {
         // Finds the image and text
         ImageView moreInfoImage1 = (ImageView) findViewById(R.id.moreInfoImage1);
         ImageView moreInfoImage2 = (ImageView) findViewById(R.id.moreInfoImage2);
-        TextView moreInfoText = (TextView) findViewById(R.id.moreInfoText);
+        TextView moreInfo = (TextView) findViewById(R.id.moreInfoText);
+
+        moreInfo.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                moreInfoText = moreInfo.getText().toString();
+                int speech = textToSpeech.speak(moreInfoText,TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
 
         // If the user chooses calories, shows the button and radio group
         // Calculates the user's bmr based on activeness, weight, height, age, and gender
@@ -91,6 +103,48 @@ public class moreInfo extends AppCompatActivity {
             RadioButton moderate = findViewById(R.id.moderate);
             RadioButton heavy = findViewById(R.id.heavy);
             RadioButton extreme = findViewById(R.id.extreme);
+
+            String sedButtonText = sedentary.getText().toString();
+            String lightButtonText = light.getText().toString();
+            String modButtonText = moderate.getText().toString();
+            String heavyButtonText = heavy.getText().toString();
+            String extButtonText = extreme.getText().toString();
+
+            sedentary.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int speech = textToSpeech.speak(sedButtonText,TextToSpeech.QUEUE_FLUSH,null);
+                    return true;
+                }
+            });
+            light.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int speech = textToSpeech.speak(lightButtonText,TextToSpeech.QUEUE_FLUSH,null);
+                    return true;
+                }
+            });
+            moderate.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int speech = textToSpeech.speak(modButtonText,TextToSpeech.QUEUE_FLUSH,null);
+                    return true;
+                }
+            });
+            heavy.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int speech = textToSpeech.speak(heavyButtonText,TextToSpeech.QUEUE_FLUSH,null);
+                    return true;
+                }
+            });
+            extreme.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int speech = textToSpeech.speak(extButtonText,TextToSpeech.QUEUE_FLUSH,null);
+                    return true;
+                }
+            });
 
 
             // Checks which radio button is chosen
@@ -122,7 +176,7 @@ public class moreInfo extends AppCompatActivity {
 
                     // Shows the user their bmr, formula, and which level of activeness they belong to
                     String bmrText = "Using Mifflin-St Jeor Equation, your BMR is " + Double.toString(bmr);
-                    moreInfoText.setText(bmrText);
+                    moreInfo.setText(bmrText);
                     moreInfoImage2.setImageResource(R.drawable.bmr_formula);
                 }
             });
@@ -130,7 +184,7 @@ public class moreInfo extends AppCompatActivity {
             // If the user chooses sleep, shows their age and how many hours they should be sleeping based on their age
         } else if (catStr.equals("Sleep")) {
             String age = "Your age: " + person.age;
-            moreInfoText.setText(age);
+            moreInfo.setText(age);
             moreInfoImage1.setImageResource(R.drawable.sleep_age);
 
             // If the use chooses weight, shows their bmi and classification
@@ -148,14 +202,14 @@ public class moreInfo extends AppCompatActivity {
                 }
             }
             bmiText = bmiText + bmi;
-            moreInfoText.setText(bmiText);
+            moreInfo.setText(bmiText);
             moreInfoImage1.setImageResource(R.drawable.bmi_chart);
             moreInfoImage2.setImageResource(R.drawable.formula_bmi);
 
             // If the user chooses sugar, shows their age, gender, and how many grams of sugar they should be eating based on these fields
         } else if (catStr.equals("Sugar")) {
             String sugarText = "Your age: " + person.age + "\n" + "Your gender: " + person.gender;
-            moreInfoText.setText(sugarText);
+            moreInfo.setText(sugarText);
             moreInfoImage1.setImageResource(R.drawable.sugar_age);
             moreInfoImage2.setImageResource(R.drawable.sugar_gender);
         }
@@ -257,5 +311,10 @@ public class moreInfo extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN);
         }
+    }
+
+    @Override
+    public void onInit(int i) {
+
     }
 }

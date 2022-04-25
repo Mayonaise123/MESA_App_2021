@@ -11,6 +11,7 @@ import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 /*
  * User inputs their caloric intake
  */
-public class caloriesPage extends AppCompatActivity{
+public class caloriesPage extends AppCompatActivity implements TextToSpeech.OnInitListener{
     // Global Variables
     private int currentApiVersion;
     EditText sugarText;
@@ -33,6 +34,8 @@ public class caloriesPage extends AppCompatActivity{
     EditText fatText;
     EditText proteinText;
     Person person;
+    TextToSpeech textToSpeech;
+    TextView calorieInstructions;
 
     /*
      * Generates the different macro calorie and sugar fields
@@ -50,9 +53,17 @@ public class caloriesPage extends AppCompatActivity{
         carbText = (EditText) findViewById(R.id.carbs);
         fatText = (EditText) findViewById(R.id.fats);
         proteinText = (EditText) findViewById(R.id.proteins);
+        calorieInstructions = (TextView) findViewById(R.id.instructionsCalories);
+        String sugarHint = sugarText.getHint().toString();
+        String carbHint = carbText.getHint().toString();
+        String fatHint = fatText.getHint().toString();
+        String proteinHint = proteinText.getHint().toString();
+        String calorieInstructionsText = calorieInstructions.getText().toString();
+
         Button back = (Button) findViewById(R.id.backBtnCalories);
         Button saveData = (Button) findViewById(R.id.saveCalories);
 
+        textToSpeech = new TextToSpeech(this, this);
         // Hides the navigation bar and status bar
         currentApiVersion = android.os.Build.VERSION.SDK_INT;
 
@@ -91,6 +102,41 @@ public class caloriesPage extends AppCompatActivity{
             public boolean onLongClick(View v) {
                 MediaPlayer saveData = MediaPlayer.create(caloriesPage.this, R.raw.savedata);
                 saveData.start();
+                return true;
+            }
+        });
+        sugarText.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(sugarHint, TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        carbText.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(carbHint, TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        proteinText.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(proteinHint, TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        fatText.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(fatHint, TextToSpeech.QUEUE_FLUSH,null);
+                return true;
+            }
+        });
+        calorieInstructions.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int speech = textToSpeech.speak(calorieInstructionsText, TextToSpeech.QUEUE_FLUSH,null);
                 return true;
             }
         });
@@ -183,5 +229,10 @@ public class caloriesPage extends AppCompatActivity{
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN);
         }
+    }
+
+    @Override
+    public void onInit(int i) {
+
     }
 }

@@ -145,7 +145,7 @@
         android:id="@+id/heightFeetValue"
         android:layout_width="144dp"
         android:layout_height="53dp"
-        android:layout_below="@+id/FeetText"/>
+        android:layout_below="@+id/FeetText" />
 
     <Spinner
         android:id="@+id/heightInchValue"

@@ -16,15 +16,15 @@
         android:onClick="toSecondaryPage"/>
 
     <TextView
-        android:layout_height="wrap_content"
+        android:id="@+id/instructionsCalories"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/backBtnCalories"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:inputType="number"
         android:text="Enter the following in grams: "
-        android:textSize="20sp"
-        android:id="@+id/instructionsCalories"/>
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/carbs"
@@ -67,14 +67,14 @@
         android:id="@+id/sugar"/>
 
     <Button
+        android:id="@+id/saveCalories"
         android:layout_width="150dp"
         android:layout_height="65dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/sugar"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@color/red"
-        android:text="Save Data"
-        android:id="@+id/saveCalories"
-        android:onClick="saveCalories"/>
+        android:onClick="saveCalories"
+        android:text="Save Data" />
 
 </RelativeLayout>

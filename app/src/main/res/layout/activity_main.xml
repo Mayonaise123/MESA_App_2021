@@ -6,25 +6,25 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/welcomeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NHS HealthTracker"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:textColor="@color/black"
         android:layout_centerHorizontal="true"
-        android:id="@+id/welcomeText"/>
+        android:layout_marginTop="20dp"
+        android:text="NHS HealthTracker"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/nameLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
         android:layout_below="@+id/welcomeText"
         android:layout_marginTop="50dp"
+        android:hint="Username"
         android:inputType="text"
-        android:maxLines="1"
-        android:id="@+id/nameLogin"/>
+        android:maxLines="1" />
 
     <EditText
         android:layout_width="match_parent"

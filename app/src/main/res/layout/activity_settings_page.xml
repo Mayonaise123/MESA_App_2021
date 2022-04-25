@@ -39,7 +39,7 @@
         android:text="Update height" />
 
     <Button
-        android:id="@+id/deleteAccount"
+        android:id="@+id/deleteAccountBtn"
         android:layout_width="190dp"
         android:layout_height="65dp"
         android:layout_below="@id/newHeight"

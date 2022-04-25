@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/deleteAccInstructions"
         android:layout_marginTop="25dp"
+        android:hint="Input the word confirm here"
         android:inputType="text"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="201dp" />
@@ -32,10 +33,10 @@
         android:id="@+id/deleteAccInstructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:layout_below="@id/backBtnDelAct"
         android:layout_centerHorizontal="true"
-        android:text="Type &quot;confirm&quot; in the text box below and then click the Confirm button to ensure the deletion of your account."
+        android:layout_marginTop="25dp"
+        android:text="Type &quot;confirm&quot; in all lower case in the text box below and then click the Confirm button to ensure the deletion of your account."
         android:textSize="20sp"
         tools:layout_editor_absoluteY="60dp" />
 
