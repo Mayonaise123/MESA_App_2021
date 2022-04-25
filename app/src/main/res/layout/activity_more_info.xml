@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rl"
@@ -49,55 +53,55 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/selectText"
         android:layout_alignParentTop="false"
-        android:layout_alignParentRight="false"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal|center_vertical"
         android:orientation="vertical">
-        android:gravity="center"
-
         <RadioButton
             android:id="@+id/sedentary"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/teal_700"
             android:checked="false"
-            android:gravity="center_horizontal"
             android:text="Sedentary"
             android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/light"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/teal_700"
+            android:layout_marginTop="5dp"
             android:checked="false"
             android:text="Light"
             android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/moderate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/teal_700"
+            android:layout_marginTop="5dp"
             android:checked="false"
             android:text="Moderate"
             android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/heavy"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/teal_700"
+            android:layout_marginTop="5dp"
             android:checked="false"
             android:text="Heavy"
             android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/extreme"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/teal_700"
+            android:layout_marginTop="5dp"
             android:checked="false"
             android:text="Extreme"
             android:textSize="20sp" />
@@ -109,6 +113,7 @@
         android:layout_height="60dp"
         android:layout_below="@id/levelsExercise"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:text="Save" />
 
     <ImageView
@@ -126,3 +131,4 @@
         android:layout_marginBottom="30dp"
         android:contentDescription="TODO" />
 </RelativeLayout>
+</ScrollView>

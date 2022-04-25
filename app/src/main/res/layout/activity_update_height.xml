@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,16 +34,16 @@
         android:layout_width="146dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructionsUpHeight"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Height: Feet"
         android:textSize="15sp" />
 
     <TextView
         android:layout_width="146dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/instructionsUpPass"
+        android:layout_below="@+id/instructionsUpHeight"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="50dp"
         android:layout_alignBaseline="@id/FeetText"
         android:layout_toRightOf="@+id/FeetText"
         android:text="Inches"
@@ -50,6 +54,7 @@
         android:id="@+id/newHeightFeetValue"
         android:layout_width="144dp"
         android:layout_height="53dp"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/FeetText"/>
 
     <Spinner
@@ -58,8 +63,8 @@
         android:layout_height="53dp"
         android:layout_below="@+id/inchText"
         android:layout_alignStart="@+id/inchText"
-        android:layout_alignBaseline="@+id/heightFeetValue"
-        android:layout_toRightOf="@+id/heightFeetValue"
+        android:layout_alignBaseline="@+id/newHeightFeetValue"
+        android:layout_toRightOf="@+id/newHeightFeetValue"
         android:layout_alignLeft="@+id/inchText" />
 
     <Button
@@ -67,7 +72,7 @@
         android:layout_height="65dp"
         android:text="Save New Height"
         android:layout_below="@id/newHeightFeetValue"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:background="@color/green"
         android:id="@+id/saveNewHeight"
@@ -75,3 +80,4 @@
 
 
 </RelativeLayout>
+</ScrollView>

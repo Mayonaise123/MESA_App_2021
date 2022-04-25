@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -52,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/mean"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:onClick="MedianAudio"
         android:text="Median"
         android:textColor="@color/black"
@@ -61,7 +65,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/median"
         android:text="Mode"
         android:textSize="20sp"
@@ -72,7 +76,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/mode"
         android:text="Range"
         android:textSize="20sp"
@@ -82,3 +86,4 @@
 
 
 </RelativeLayout>
+</ScrollView>

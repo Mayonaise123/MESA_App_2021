@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,6 +26,7 @@
         android:layout_below="@id/backBtnData"
         android:layout_centerHorizontal="true"
         android:text="Choose a category of data to plot."
+        android:layout_marginTop="20dp"
         android:textSize="20sp" />
 
     <Spinner
@@ -38,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/chooseCategory"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:hint="Starting Date" />
 
     <EditText
@@ -67,8 +72,9 @@
         android:layout_height="65dp"
         android:layout_below="@id/toPlotPage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:background="@color/red"
         android:onClick="toPlotPageAll"
         android:text="Plot All Data" />
 </RelativeLayout>
+</ScrollView>

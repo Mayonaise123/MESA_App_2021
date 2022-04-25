@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,15 +10,14 @@
     tools:context=".settingsPage">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
         android:text="Back"
         android:drawableLeft="@drawable/ic_back"
         android:background="@color/purple_200"
         android:layout_marginTop="20dp"
         android:id="@+id/backBtnSettings"
         android:onClick="toSecondaryPage"/>
-
 
     <Button
         android:id="@+id/newPassword"
@@ -33,7 +36,7 @@
         android:layout_height="65dp"
         android:layout_below="@id/newPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:background="@color/orange"
         android:onClick="toUpdateHeightPage"
         android:text="Update height" />
@@ -44,10 +47,9 @@
         android:layout_height="65dp"
         android:layout_below="@id/newHeight"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:background="@color/red"
         android:onClick="toDeleteAccountPage"
         android:text="Delete account" />
-
-
 </RelativeLayout>
+</ScrollView>

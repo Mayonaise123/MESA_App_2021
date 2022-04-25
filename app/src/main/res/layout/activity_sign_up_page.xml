@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/backBtnSignUp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:maxLines="1"
         android:inputType="text"
         android:hint="Name"
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nameSignUp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:maxLines="1"
         android:inputType="text"
         android:hint="Username"
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/usernameSignUp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:maxLines="1"
         android:inputType="text"
         android:hint="Password"
@@ -50,11 +50,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Birthday"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/black"
         android:layout_below="@+id/passwordSignUp"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:id="@+id/birthdayText"/>
+
     <TextView
         android:id="@+id/monthText"
         android:layout_width="wrap_content"
@@ -62,7 +63,7 @@
         android:layout_below="@+id/birthdayText"
         android:text="Month"
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/dayText"
@@ -71,27 +72,29 @@
         android:layout_below="@+id/birthdayText"
         android:layout_alignBottom="@+id/monthText"
         android:layout_toRightOf="@+id/monthText"
-        android:layout_alignLeft="@+id/day"
+        android:layout_marginLeft="30dp"
         android:textColor="@color/black"
         android:text="Day"
-        android:textSize="15sp"/>
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/yearText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/birthdayText"
-        android:layout_alignLeft="@+id/year"
+        android:layout_marginLeft="30dp"
         android:layout_toRightOf="@+id/dayText"
         android:text="Year"
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/monthText"/>
+        android:layout_alignLeft="@+id/monthText"
+        android:layout_below="@+id/monthText"
+        android:layout_alignStart="@+id/monthText" />
 
     <Spinner
         android:id="@+id/day"
@@ -99,7 +102,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/dayText"
         android:layout_alignBottom="@+id/month"
-        android:layout_toRightOf="@+id/month"/>
+        android:layout_alignLeft="@+id/dayText"
+        android:layout_alignBaseline="@+id/month"/>
 
     <Spinner
         android:id="@+id/year"
@@ -107,6 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/yearText"
         android:layout_alignBottom="@+id/day"
+        android:layout_alignLeft="@+id/yearText"
         android:layout_toRightOf="@+id/day" />
 
     <TextView
@@ -115,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/month"
         android:text="Height"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/black"
         android:textSize="15sp"/>
 
@@ -127,7 +132,7 @@
         android:layout_marginBottom="10dp"
         android:text="Feet"
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
     <TextView
         android:layout_width="146dp"
         android:layout_height="wrap_content"
@@ -137,7 +142,7 @@
         android:layout_marginBottom="10dp"
         android:textColor="@color/black"
         android:text="Inches"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:layout_toRightOf="@id/FeetText"
         android:layout_marginLeft="40dp"/>
 
@@ -162,9 +167,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/heightFeetValue"
         android:textColor="@color/black"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:text="Gender"
-        android:textSize="15sp"/>
+        android:textSize="20sp"/>
 
     <RadioGroup
         android:id="@+id/genderChoice"
@@ -192,7 +197,7 @@
     <Button
         android:layout_width="173dp"
         android:layout_height="82dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@id/genderChoice"
         android:layout_centerHorizontal="true"
         android:text="Create Account"

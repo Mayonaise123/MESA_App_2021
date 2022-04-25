@@ -26,7 +26,7 @@ import java.util.ArrayList;
 /*
  * User inputs their caloric intake
  */
-public class caloriesPage extends AppCompatActivity implements TextToSpeech.OnInitListener{
+public class caloriesPage extends AppCompatActivity implements TextToSpeech.OnInitListener {
     // Global Variables
     private int currentApiVersion;
     EditText sugarText;

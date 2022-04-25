@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,7 +24,7 @@
         android:id="@+id/goToCaloriesBtn"
         android:layout_width="150dp"
         android:layout_height="65dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/helloText"
         android:drawableLeft="@drawable/ic_calories"
@@ -31,7 +36,7 @@
         android:layout_width="150dp"
         android:layout_height="65dp"
         android:layout_below="@+id/goToCaloriesBtn"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/ic_sleep"
         android:layout_centerHorizontal="true"
         android:text="Sleep"
@@ -45,7 +50,7 @@
         android:layout_below="@+id/goToSleepBtn"
         android:drawableLeft="@drawable/ic_weight"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:background="@color/yellow"
         android:text="Weight"
         android:onClick="toWeightPage"/>
@@ -55,7 +60,7 @@
         android:layout_height="65dp"
         android:layout_below="@id/goToWeightBtn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:text="Data"
         android:background="@color/green"
         android:drawableLeft="@drawable/ic_data"
@@ -66,7 +71,7 @@
         android:layout_height="65dp"
         android:layout_below="@id/goToDataPage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:background="@color/blue"
         android:drawableLeft="@drawable/ic_settings"
         android:text="Settings"
@@ -79,12 +84,10 @@
         android:layout_height="65dp"
         android:layout_below="@id/goToSettingsPage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:background="@color/purple_200"
         android:drawableLeft="@drawable/ic_logout"
         android:onClick="toLoginPage"
         android:text="Log Out" />
-
-
-
 </RelativeLayout>
+</ScrollView>
