@@ -30,6 +30,7 @@ public class moreInfo extends AppCompatActivity implements TextToSpeech.OnInitLi
     Person person;
     TextToSpeech textToSpeech;
     String moreInfoText;
+    double weight;
 
     /*
      * Sets the text and image based on the category the user chooses
@@ -63,17 +64,19 @@ public class moreInfo extends AppCompatActivity implements TextToSpeech.OnInitLi
         Button dataBtn = (Button) findViewById(R.id.backBtnData);
         Button saveBtn = (Button) findViewById(R.id.save);
 
+        int height = person.height;
+        weight = 0;
+
         if (person.splitLongStr[7].equals("-1")) {
             Intent intent = new Intent(this, secondaryAct.class);
             intent.putExtra("person", (Parcelable) person);
             startActivity(intent);
             Toast.makeText(getBaseContext(), "Input your weight in weight page to see your BMR", Toast.LENGTH_LONG).show();
+
+        } else {
+            String[] splitWeight = person.splitLongStr[7].split(",,,");
+            weight = Double.parseDouble(splitWeight[splitWeight.length - 1].split(",")[1]);
         }
-
-        String[] splitWeight = person.splitLongStr[7].split(",,,");
-        double weight = Double.parseDouble(splitWeight[splitWeight.length - 1].split(",")[1]);
-        int height = person.height;
-
         // Finds the image and text
         ImageView moreInfoImage1 = (ImageView) findViewById(R.id.moreInfoImage1);
         ImageView moreInfoImage2 = (ImageView) findViewById(R.id.moreInfoImage2);
@@ -145,7 +148,6 @@ public class moreInfo extends AppCompatActivity implements TextToSpeech.OnInitLi
                     return true;
                 }
             });
-
 
             // Checks which radio button is chosen
             save.setOnClickListener(new View.OnClickListener() {

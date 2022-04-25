@@ -112,7 +112,7 @@ public class statPage extends AppCompatActivity implements TextToSpeech.OnInitLi
         meanText = "Your daily mean " + catStrLow + " is " + mean(dataList) + units + " for " + totalEvents + day;
         medianText = "Your daily median " + catStrLow + " is " + median(dataList) + units + " for " + totalEvents + day;
         modeText = "Your daily mode " + catStrLow + " is " + mode(dataList) + units + " for " + totalEvents + day;
-        rangeText = "Your daily range of " + catStrLow + " is " +  range(dataList) + units + " for " + totalEvents + day + " ,between the highest and lowest recorded values";
+        rangeText = "Your daily range of " + catStrLow + " is " +  range(dataList) + units + " for " + totalEvents + day + ", between the highest and lowest recorded values";
 
         mean.setText(meanText);
         median.setText(medianText);
