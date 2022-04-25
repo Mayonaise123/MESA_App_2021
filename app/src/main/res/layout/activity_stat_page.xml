@@ -44,7 +44,8 @@
         android:text="Mean"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:id="@+id/mean"/>
+        android:id="@+id/mean"
+        android:onClick="MeanAudio"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +55,8 @@
         android:text="Median"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:id="@+id/median"/>
+        android:id="@+id/median"
+        android:onClick="MedianAudio"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,7 +66,8 @@
         android:text="Mode"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:id="@+id/mode"/>
+        android:id="@+id/mode"
+        android:onClick="ModeAudio"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -74,7 +77,8 @@
         android:text="Range"
         android:textSize="20sp"
         android:textColor="@color/black"
-        android:id="@+id/range"/>
+        android:id="@+id/range"
+        android:onClick="RangeAudio"/>
 
 
 </RelativeLayout>

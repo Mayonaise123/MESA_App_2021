@@ -32,6 +32,7 @@
         android:id="@+id/deleteAccInstructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:layout_below="@id/backBtnDelAct"
         android:layout_centerHorizontal="true"
         android:text="Type &quot;confirm&quot; in the text box below and then click the Confirm button to ensure the deletion of your account."
@@ -45,6 +46,7 @@
         android:background="@color/purple_200"
         android:drawableLeft="@drawable/ic_back"
         android:onClick="toSettingsPage"
+        android:layout_marginTop="25dp"
         android:text="Back" />
 
 </RelativeLayout>

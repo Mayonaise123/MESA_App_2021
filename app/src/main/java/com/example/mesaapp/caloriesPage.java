@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 /*
  * User inputs their caloric intake
  */
-public class caloriesPage extends AppCompatActivity {
+public class caloriesPage extends AppCompatActivity{
     // Global Variables
     private int currentApiVersion;
     EditText sugarText;

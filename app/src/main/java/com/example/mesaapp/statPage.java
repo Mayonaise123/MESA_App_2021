@@ -7,29 +7,38 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 /*
  * Shows the user the average data based on the input from Plot Page
  */
-public class statPage extends AppCompatActivity {
+public class statPage extends AppCompatActivity implements TextToSpeech.OnInitListener {
     // Global Variables
     private int currentApiVersion;
     int totalEvents;
     String catStr;
     String minDateStr;
     String maxDateStr;
+    String meanText;
+    String medianText;
+    String modeText;
+    String rangeText;
     TextView median;
     TextView mean;
     TextView mode;
     TextView range;
     String[] dataArray;
     Person person;
+    TextToSpeech textToSpeech;
 
     /*
      * Sets the mean, median, mode, and range
@@ -38,6 +47,7 @@ public class statPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stat_page);
+
 
         // Gets data from previous pages
         Bundle data = getIntent().getExtras();
@@ -52,6 +62,7 @@ public class statPage extends AppCompatActivity {
         Button back = (Button) findViewById(R.id.backBtnStats);
         Button dataBtn = (Button) findViewById(R.id.backBtnData);
         Button moreInfo = (Button) findViewById(R.id.moreBtnInfo);
+        textToSpeech = new TextToSpeech(this, this);
 
         // Hides the navigation and status bar
         final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -98,10 +109,10 @@ public class statPage extends AppCompatActivity {
         } else if (catStrLow.equals("sugar")) {
             units = " grams";
         }
-        String meanText = "Your daily mean " + catStrLow + " is " + mean(dataList) + units + " for " + totalEvents + day;
-        String medianText = "Your daily median " + catStrLow + " is " + median(dataList) + units + " for " + totalEvents + day;
-        String modeText = "Your daily mode " + catStrLow + " is " + mode(dataList) + units + " for " + totalEvents + day;
-        String rangeText = "Your daily range of " + catStrLow + " is " +  range(dataList) + units + " for " + totalEvents + day + " ,between the highest and lowest recorded values";
+        meanText = "Your daily mean " + catStrLow + " is " + mean(dataList) + units + " for " + totalEvents + day;
+        medianText = "Your daily median " + catStrLow + " is " + median(dataList) + units + " for " + totalEvents + day;
+        modeText = "Your daily mode " + catStrLow + " is " + mode(dataList) + units + " for " + totalEvents + day;
+        rangeText = "Your daily range of " + catStrLow + " is " +  range(dataList) + units + " for " + totalEvents + day + " ,between the highest and lowest recorded values";
 
         mean.setText(meanText);
         median.setText(medianText);
@@ -266,5 +277,28 @@ public class statPage extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN);
         }
+    }
+
+    @Override
+    public void onInit(int i) {
+        if (i == TextToSpeech.SUCCESS) {
+            int lang = textToSpeech.setLanguage(Locale.ENGLISH);
+        }
+    }
+
+    public void MeanAudio(View view) {
+        int speech = textToSpeech.speak(meanText,TextToSpeech.QUEUE_FLUSH,null);
+    }
+
+    public void MedianAudio(View view) {
+        int speech = textToSpeech.speak(medianText,TextToSpeech.QUEUE_FLUSH,null);
+    }
+
+    public void ModeAudio(View view) {
+        int speech = textToSpeech.speak(modeText,TextToSpeech.QUEUE_FLUSH,null);
+    }
+
+    public void RangeAudio(View view) {
+        int speech = textToSpeech.speak(rangeText,TextToSpeech.QUEUE_FLUSH,null);
     }
 }

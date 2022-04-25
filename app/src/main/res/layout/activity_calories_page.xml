@@ -27,14 +27,18 @@
         android:id="@+id/instructionsCalories"/>
 
     <EditText
+        android:id="@+id/carbs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructionsCalories"
-        android:inputType="number"
-        android:hint="Carbohydrates"
         android:layout_marginTop="50dp"
-        android:id="@+id/carbs"
-        />
+        android:hint="Carbohydrates"
+        android:inputType="number" />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignRight="@+id/carbs"
+        android:id="@+id/btnSpeak"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
