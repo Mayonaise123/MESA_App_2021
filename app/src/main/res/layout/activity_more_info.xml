@@ -2,133 +2,133 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="false">
-<RelativeLayout
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rl"
-    tools:context=".moreInfo">
+    android:fillViewport="false">
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:text="Back"
-        android:drawableLeft="@drawable/ic_back"
-        android:background="@color/purple_200"
-        android:layout_marginTop="20dp"
-        android:id="@+id/backBtnMoreInfo"
-        android:onClick="toStatsPage"/>
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:text="Data"
-        android:background="@color/teal_200"
-        android:layout_marginTop="20dp"
-        android:id="@+id/backBtnData"
-        android:onClick="toDataPage"
-        android:layout_alignParentRight="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/backBtnMoreInfo"
-        android:textSize="20sp"
-        android:id="@+id/moreInfoText"/>
+        tools:context=".moreInfo">
 
-    <TextView
-        android:id="@+id/selectText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/moreInfoText"
-        android:layout_marginTop="0dp"
-        android:gravity="center"
-        android:text="Please Select Activity Level"
-        android:textSize="20sp" />
+        <Button
+            android:id="@+id/backBtnMoreInfo"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/purple_200"
+            android:drawableLeft="@drawable/ic_back"
+            android:onClick="toStatsPage"
+            android:text="Back" />
 
-    <RadioGroup
-        android:id="@+id/levelsExercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/selectText"
-        android:layout_alignParentTop="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="vertical">
-        <RadioButton
-            android:id="@+id/sedentary"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/backBtnData"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/teal_200"
+            android:onClick="toDataPage"
+            android:text="Data" />
+
+        <TextView
+            android:id="@+id/moreInfoText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/teal_700"
-            android:checked="false"
-            android:text="Sedentary"
+            android:layout_below="@id/backBtnMoreInfo"
             android:textSize="20sp" />
 
-        <RadioButton
-            android:id="@+id/light"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/selectText"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/teal_700"
-            android:layout_marginTop="5dp"
-            android:checked="false"
-            android:text="Light"
+            android:layout_below="@id/moreInfoText"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="Please Select Activity Level"
             android:textSize="20sp" />
 
-        <RadioButton
-            android:id="@+id/moderate"
-            android:layout_width="match_parent"
+        <RadioGroup
+            android:id="@+id/levelsExercise"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/teal_700"
-            android:layout_marginTop="5dp"
-            android:checked="false"
-            android:text="Moderate"
-            android:textSize="20sp" />
+            android:layout_below="@+id/selectText"
+            android:layout_alignParentTop="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/heavy"
-            android:layout_width="match_parent"
+            <RadioButton
+                android:id="@+id/sedentary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/teal_700"
+                android:checked="false"
+                android:text="Sedentary"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:buttonTint="@color/teal_700"
+                android:checked="false"
+                android:text="Light"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/moderate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:buttonTint="@color/teal_700"
+                android:checked="false"
+                android:text="Moderate"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/heavy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:buttonTint="@color/teal_700"
+                android:checked="false"
+                android:text="Heavy"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/extreme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:buttonTint="@color/teal_700"
+                android:checked="false"
+                android:text="Extreme"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_below="@id/levelsExercise"
+            android:layout_centerHorizontal="true"
+            android:text="Save" />
+
+        <ImageView
+            android:id="@+id/moreInfoImage1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/teal_700"
-            android:layout_marginTop="5dp"
-            android:checked="false"
-            android:text="Heavy"
-            android:textSize="20sp" />
+            android:layout_below="@id/save"
+            android:contentDescription="TODO" />
 
-        <RadioButton
-            android:id="@+id/extreme"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/moreInfoImage2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/teal_700"
-            android:layout_marginTop="5dp"
-            android:checked="false"
-            android:text="Extreme"
-            android:textSize="20sp" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_below="@id/levelsExercise"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Save" />
-
-    <ImageView
-        android:id="@+id/moreInfoImage1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/save"
-        android:contentDescription="TODO" />
-
-    <ImageView
-        android:id="@+id/moreInfoImage2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/moreInfoImage1"
-        android:layout_marginBottom="30dp"
-        android:contentDescription="TODO" />
-</RelativeLayout>
+            android:layout_below="@id/moreInfoImage1"
+            android:contentDescription="TODO" />
+    </RelativeLayout>
 </ScrollView>
